@@ -47,7 +47,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/users").permitAll()
                         .requestMatchers("/managers").hasRole("MANAGERS")
-                        //.requestMatchers("/products").hasAnyRole("MANAGERS", "USERS")
+                        .requestMatchers("/products").permitAll()
                         .requestMatchers("/products/create").hasRole("MANAGERS")
                         .requestMatchers("/products/find").hasAnyRole("MANAGERS", "USERS")
                         .anyRequest().authenticated()

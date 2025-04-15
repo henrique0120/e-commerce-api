@@ -31,7 +31,9 @@ public class LoginController {
 
     @PostMapping("/login")
     public Sessao logar(@RequestBody UserDTO userDTO){
-        UserEntity user = repository.findByUsername(userDTO.getUsername());
+        UserEntity user = repository.findByUsername(userDTO.getUsername())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
         if(user != null) {
             boolean passwordOk = encoder.matches(userDTO.getPassword(), user.getPassword());
             if (!passwordOk) {

@@ -12,4 +12,7 @@ public class ProductModel {
     private String name;
     private String type;
     private Number price;
+    private int stock;
+    private String desc;
+
 }

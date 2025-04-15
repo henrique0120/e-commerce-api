@@ -18,8 +18,6 @@ public class ProductController {
         this.productService = productService;
     }
 
-
-
     @PostMapping("/create")
     public void createProduct(@RequestBody ProductEntity productEntity){
         productService.createProduct(productEntity);

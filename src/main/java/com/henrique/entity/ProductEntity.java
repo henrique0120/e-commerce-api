@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,12 @@ public class ProductEntity {
 
     @Column(nullable = false)
     private Double price;
+
+    @Column(nullable = false)
+    private int stock;
+
+    @Column(nullable = false)
+    private String description;
 
 
 }

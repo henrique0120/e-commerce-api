@@ -20,8 +20,8 @@ public class ProductService {
         this.productMapper = productMapper;
     }
 
-    public void createProduct(ProductEntity procuct){
-        repository.save(procuct);
+    public void createProduct(ProductEntity product){
+        repository.save(product);
     }
 
     public ProductDTO findProduct(String name) {

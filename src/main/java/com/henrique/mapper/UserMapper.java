@@ -1,7 +1,7 @@
 package com.henrique.mapper;
 
 import com.henrique.dto.UserDTO;
-import com.henrique.entity.UserEntity;
+import com.henrique.model.UserEntity;
 import org.springframework.stereotype.Component;
 
 @Component

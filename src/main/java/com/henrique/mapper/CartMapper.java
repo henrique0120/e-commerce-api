@@ -2,11 +2,7 @@ package com.henrique.mapper;
 
 import com.henrique.dto.CartDTO;
 import com.henrique.dto.CartItemDTO;
-import com.henrique.dto.ProductDTO;
-import com.henrique.dto.UserDTO;
-import com.henrique.entity.CartEntity;
-import com.henrique.entity.CartItem;
-import com.henrique.entity.UserEntity;
+import com.henrique.model.CartEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

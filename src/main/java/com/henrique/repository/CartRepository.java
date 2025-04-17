@@ -1,7 +1,7 @@
 package com.henrique.repository;
 
-import com.henrique.entity.CartEntity;
-import com.henrique.entity.UserEntity;
+import com.henrique.model.CartEntity;
+import com.henrique.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -3,7 +3,7 @@ package com.henrique.controller;
 import com.henrique.config.SecurityConfig;
 import com.henrique.dto.Sessao;
 import com.henrique.dto.UserDTO;
-import com.henrique.entity.UserEntity;
+import com.henrique.model.UserEntity;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTObject;
 import com.henrique.security.JWTCreator;

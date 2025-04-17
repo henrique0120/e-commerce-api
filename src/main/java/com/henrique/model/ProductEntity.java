@@ -1,5 +1,7 @@
-package com.henrique.entity;
+package com.henrique.model;
 
+import com.henrique.enums.Categories;
+import com.henrique.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,8 +19,9 @@ public class ProductEntity {
     @Column(length = 50, nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String type;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "category")
+    private Categories category;
 
     @Column(nullable = false)
     private Double price;

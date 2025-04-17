@@ -1,16 +1,14 @@
 package com.henrique.service;
 
-import com.henrique.entity.CartEntity;
-import com.henrique.entity.CartItem;
-import com.henrique.entity.ProductEntity;
-import com.henrique.entity.UserEntity;
+import com.henrique.model.CartEntity;
+import com.henrique.model.CartItem;
+import com.henrique.model.ProductEntity;
+import com.henrique.model.UserEntity;
 import com.henrique.repository.CartItemRepository;
 import com.henrique.repository.CartRepository;
 import com.henrique.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class CartService {

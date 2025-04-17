@@ -1,8 +1,8 @@
 package com.henrique.mapper;
 
 import com.henrique.dto.CartItemDTO;
-import com.henrique.entity.CartItem;
-import com.henrique.entity.ProductEntity;
+import com.henrique.model.CartItem;
+import com.henrique.model.ProductEntity;
 import com.henrique.repository.ProductRepository;
 import org.springframework.stereotype.Component;
 

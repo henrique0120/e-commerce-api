@@ -1,4 +1,4 @@
-package com.henrique.entity;
+package com.henrique.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

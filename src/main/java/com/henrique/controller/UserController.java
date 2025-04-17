@@ -1,8 +1,7 @@
 package com.henrique.controller;
 
-import com.henrique.entity.UserEntity;
+import com.henrique.model.UserEntity;
 import com.henrique.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

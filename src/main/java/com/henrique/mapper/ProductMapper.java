@@ -1,7 +1,7 @@
 package com.henrique.mapper;
 
 import com.henrique.dto.ProductDTO;
-import com.henrique.entity.ProductEntity;
+import com.henrique.model.ProductEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -17,20 +17,11 @@ public class ProductMapper {
         ProductDTO dto = new ProductDTO();
         dto.setId(entity.getId());
         dto.setName(entity.getName());
+        dto.setCategory(entity.getCategory());
         dto.setPrice(entity.getPrice());
-        dto.setStock(entity.getStock());
         dto.setDesc(entity.getDescription());
         return dto;
     }
-
-    public List<ProductEntity> toEntityList(List<ProductDTO> dtos){
-        if (dtos == null || dtos.isEmpty()) return new ArrayList<>();
-
-        return dtos.stream()
-                .map(this::toEntity)
-                .collect(Collectors.toList());
-    }
-
 
     public List<ProductDTO> toDtoList(List<ProductEntity> entities) {
         if (entities == null || entities.isEmpty()) return new ArrayList<>();
@@ -40,16 +31,6 @@ public class ProductMapper {
                 .collect(Collectors.toList());
     }
 
-    public ProductEntity toEntity(ProductDTO dto) {
-        if (dto == null) return null;
 
-        ProductEntity entity = new ProductEntity();
-        entity.setId(dto.getId());
-        entity.setName(dto.getName());
-        entity.setPrice(dto.getPrice());
-        entity.setStock(dto.getStock());
-        entity.setDescription(dto.getDesc());
-        return entity;
-    }
 }
 

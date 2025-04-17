@@ -1,7 +1,6 @@
 package com.henrique.service;
 
-import com.henrique.entity.ProductEntity;
-import com.henrique.entity.UserEntity;
+import com.henrique.model.UserEntity;
 import com.henrique.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

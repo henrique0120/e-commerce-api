@@ -1,6 +1,6 @@
 package com.henrique.config;
 
-import com.henrique.entity.UserEntity;
+import com.henrique.model.UserEntity;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTCreator;
 import com.henrique.security.JWTObject;

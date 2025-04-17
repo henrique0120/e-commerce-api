@@ -1,9 +1,7 @@
 package com.henrique.service;
 
 import com.henrique.dto.ProductDTO;
-import com.henrique.dto.UserDTO;
-import com.henrique.entity.ProductEntity;
-import com.henrique.entity.UserEntity;
+import com.henrique.model.ProductEntity;
 import com.henrique.mapper.ProductMapper;
 import com.henrique.repository.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -27,6 +25,16 @@ public class ProductService {
     public ProductDTO findProduct(String name) {
         ProductEntity product = repository.findByName(name);
         return productMapper.toDto(product);
+    }
+
+    public List<ProductDTO> findByPrice(Double price){
+       List<ProductEntity> product = repository.findByPrice(price);
+       return productMapper.toDtoList(product);
+    }
+
+    public List<ProductDTO> findByCategory(String category){
+        List<ProductEntity> product = repository.findByCategory(category);
+        return productMapper.toDtoList(product);
     }
 
     public List<ProductDTO> findAll() {

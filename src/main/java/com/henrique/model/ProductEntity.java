@@ -1,10 +1,11 @@
 package com.henrique.model;
 
 import com.henrique.enums.Categories;
-import com.henrique.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -24,7 +25,7 @@ public class ProductEntity {
     private Categories category;
 
     @Column(nullable = false)
-    private Double price;
+    private BigDecimal price;
 
     @Column(nullable = false)
     private int stock;

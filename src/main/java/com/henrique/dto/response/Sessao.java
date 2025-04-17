@@ -1,4 +1,4 @@
-package com.henrique.dto;
+package com.henrique.dto.response;
 
 
 public class Sessao {

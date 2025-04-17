@@ -1,6 +1,5 @@
 package com.henrique.model;
 
-import com.henrique.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,9 +26,8 @@ public class OrderEntity {
         this.date = LocalDateTime.now();
     }
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private Status status;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

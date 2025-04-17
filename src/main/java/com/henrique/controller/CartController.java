@@ -1,8 +1,8 @@
 package com.henrique.controller;
 
 import com.henrique.config.AuthenticatedUserProvider;
-import com.henrique.dto.CartDTO;
-import com.henrique.dto.CartItemDTO;
+import com.henrique.dto.response.CartDTO;
+import com.henrique.dto.response.CartItemDTO;
 import com.henrique.model.CartEntity;
 import com.henrique.model.UserEntity;
 import com.henrique.mapper.CartMapper;

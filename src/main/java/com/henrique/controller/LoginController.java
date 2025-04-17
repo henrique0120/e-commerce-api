@@ -1,8 +1,8 @@
 package com.henrique.controller;
 
 import com.henrique.config.SecurityConfig;
-import com.henrique.dto.Sessao;
-import com.henrique.dto.UserDTO;
+import com.henrique.dto.response.Sessao;
+import com.henrique.dto.response.UserDTO;
 import com.henrique.model.UserEntity;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTObject;

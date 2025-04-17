@@ -1,4 +1,4 @@
-package com.henrique.dto;
+package com.henrique.dto.response;
 
 import lombok.Data;
 import lombok.Getter;

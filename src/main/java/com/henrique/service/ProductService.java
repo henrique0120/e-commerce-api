@@ -1,6 +1,6 @@
 package com.henrique.service;
 
-import com.henrique.dto.ProductDTO;
+import com.henrique.dto.response.ProductDTO;
 import com.henrique.model.ProductEntity;
 import com.henrique.mapper.ProductMapper;
 import com.henrique.repository.ProductRepository;

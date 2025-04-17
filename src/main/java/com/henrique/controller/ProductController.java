@@ -1,6 +1,6 @@
 package com.henrique.controller;
 
-import com.henrique.dto.ProductDTO;
+import com.henrique.dto.response.ProductDTO;
 import com.henrique.model.ProductEntity;
 import com.henrique.service.ProductService;
 import org.springframework.http.ResponseEntity;

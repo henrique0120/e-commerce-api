@@ -3,28 +3,26 @@ package com.henrique.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 @Getter
 @Setter
 public class OrderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     private Long id;
 
-    @Column(name = "date")
+    @CreationTimestamp
+    @Column(name = "date", updatable = false)
     private LocalDateTime date;
-
-    @PrePersist
-    protected void onCreate() {
-        this.date = LocalDateTime.now();
-    }
 
     @Column(name = "status")
     private String status;

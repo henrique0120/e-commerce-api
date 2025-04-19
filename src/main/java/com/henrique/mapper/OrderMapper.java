@@ -13,18 +13,18 @@ import java.util.stream.Collectors;
 @Component
 public class OrderMapper {
 
-    public static OrderDTO toDTO(OrderEntity order) {
+    public static OrderDTO toDTO(OrderEntity orders) {
         OrderDTO dto = new OrderDTO();
-        dto.setId(order.getId());
-        dto.setDate(order.getDate());
-        dto.setStatus(order.getStatus().toString());
-        dto.setItems(order.getItems().stream().map(OrderMapper::toItemDTO).collect(Collectors.toList()));
+        dto.setId(orders.getId());
+        dto.setDate(orders.getDate());
+        dto.setStatus(orders.getStatus());
+        dto.setItems(orders.getItems().stream().map(OrderMapper::toItemDTO).collect(Collectors.toList()));
         return dto;
     }
 
     public static OrderItemDTO toItemDTO(OrderItem item) {
         OrderItemDTO dto = new OrderItemDTO();
-        dto.setId(item.getId());
+        dto.setProductId(item.getProduct().getId());
         dto.setQuantity(item.getQuantity());
 
         ProductDTO productDTO = new ProductDTO();

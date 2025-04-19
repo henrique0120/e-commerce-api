@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_product")
+    @Column(name = "product_id")
     private Long id;
 
     @Column(length = 50, nullable = false)

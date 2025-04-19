@@ -9,18 +9,18 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
-@Table(name = "order")
+@Table(name = "order_items")
 public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_item")
+    @Column(name = "item_id")
     private Long id;
 
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "priceAtPurchase")
+    @Column(name = "price_at_purchase")
     private BigDecimal priceAtPurchase;
 
     @Column(name = "subtotal")

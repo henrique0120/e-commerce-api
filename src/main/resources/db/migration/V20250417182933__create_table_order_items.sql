@@ -1,5 +1,5 @@
-CREATE TABLE order_item (
-    id_item SERIAL PRIMARY KEY,
+CREATE TABLE order_items (
+    item_id SERIAL PRIMARY KEY,
     quantity INTEGER NOT NULL,
     price_at_purchase NUMERIC(10, 2) NOT NULL,
     subtotal NUMERIC(10, 2) NOT NULL,

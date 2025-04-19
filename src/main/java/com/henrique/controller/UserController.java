@@ -2,6 +2,7 @@ package com.henrique.controller;
 
 import com.henrique.model.UserEntity;
 import com.henrique.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

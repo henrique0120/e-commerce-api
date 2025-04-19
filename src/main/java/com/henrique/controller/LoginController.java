@@ -7,6 +7,7 @@ import com.henrique.model.UserEntity;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTObject;
 import com.henrique.security.JWTCreator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,19 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @RestController
+@RequiredArgsConstructor
 public class LoginController {
 
     private final PasswordEncoder encoder;
     private final SecurityConfig securityConfig;
     private final UserRepository repository;
     private final JWTCreator jwtCreator;
-
-    public LoginController(PasswordEncoder encoder, SecurityConfig securityConfig, UserRepository repository, JWTCreator jwtCreator) {
-        this.encoder = encoder;
-        this.securityConfig = securityConfig;
-        this.repository = repository;
-        this.jwtCreator = jwtCreator;
-    }
 
     @PostMapping("/login")
     public Sessao logar(@RequestBody UserDTO userDTO){

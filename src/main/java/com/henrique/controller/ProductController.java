@@ -3,6 +3,7 @@ package com.henrique.controller;
 import com.henrique.dto.response.ProductDTO;
 import com.henrique.model.ProductEntity;
 import com.henrique.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
+@RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
-
-    public ProductController(ProductService service, ProductService productService) {
-        this.productService = productService;
-    }
 
     @PostMapping("/create")
     public void createProduct(@RequestBody ProductEntity productEntity){

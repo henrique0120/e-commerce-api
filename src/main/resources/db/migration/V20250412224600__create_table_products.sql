@@ -1,8 +1,8 @@
 CREATE TABLE products (
-    id_product SERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    type VARCHAR(255) NOT NULL,
-    price DOUBLE PRECISION NOT NULL,
+    product_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    price NUMERIC(10, 2) NOT NULL,
     stock INTEGER NOT NULL,
     description TEXT NOT NULL
 );

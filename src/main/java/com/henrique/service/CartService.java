@@ -8,20 +8,16 @@ import com.henrique.repository.CartItemRepository;
 import com.henrique.repository.CartRepository;
 import com.henrique.repository.ProductRepository;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class CartService {
 
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
     private final CartItemRepository cartItemRepository;
-
-    public CartService(CartRepository cartRepository, ProductRepository productRepository, CartItemRepository cartItemRepository) {
-        this.cartRepository = cartRepository;
-        this.productRepository = productRepository;
-        this.cartItemRepository = cartItemRepository;
-    }
 
     public CartEntity getCartByUser(UserEntity user) {
         return cartRepository.findByUser(user)

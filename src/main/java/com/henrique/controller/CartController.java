@@ -8,23 +8,19 @@ import com.henrique.model.UserEntity;
 import com.henrique.mapper.CartMapper;
 import com.henrique.service.CartService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cart")
+@RequiredArgsConstructor
 public class CartController {
 
     private final CartService service;
     private final CartMapper cartMapper;
     private final AuthenticatedUserProvider authUser;
-
-    public CartController(CartService service, CartMapper cartMapper, AuthenticatedUserProvider authUser) {
-        this.service = service;
-        this.cartMapper = cartMapper;
-        this.authUser = authUser;
-    }
 
     @GetMapping("")
     public ResponseEntity<CartDTO> getMyCart(HttpServletRequest request) {

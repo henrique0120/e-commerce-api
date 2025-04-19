@@ -150,6 +150,20 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>10.20.1</version>
+				<configuration>
+					<url>jdbc:postgresql://localhost:5432/ecommerce</url>
+					<user>postgres</user>
+					<password>123</password>
+					<schemas>
+						<schema>public</schema>
+					</schemas>
+				</configuration>
+			</plugin>
+
 			<!-- Plugin do Spring Boot para execução -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

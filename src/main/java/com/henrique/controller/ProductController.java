@@ -21,6 +21,11 @@ public class ProductController {
         productService.createProduct(productEntity);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+    }
+
     @GetMapping("")
     public ResponseEntity<List<ProductDTO>> findAll() {
         List<ProductDTO> products = productService.findAll();

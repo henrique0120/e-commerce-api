@@ -22,6 +22,10 @@ public class ProductService {
         repository.save(product);
     }
 
+    public void deleteProduct(Long id){
+        repository.deleteById(id);
+    }
+
     public ProductDTO findProduct(String name) {
         ProductEntity product = repository.findByName(name);
         return productMapper.toDto(product);

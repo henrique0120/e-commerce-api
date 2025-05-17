@@ -1,53 +1,33 @@
 package com.henrique.mapper;
 
+import com.henrique.controller.request.SaveProductRequest;
+import com.henrique.controller.response.ProductDetailResponse;
+import com.henrique.controller.response.SaveProductResponse;
 import com.henrique.dto.response.ProductDTO;
 import com.henrique.model.ProductEntity;
-import org.springframework.stereotype.Component;
+import jakarta.validation.Valid;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Component
-public class ProductMapper {
+import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
-    public ProductDTO toDto(ProductEntity entity) {
-        if (entity == null) return null;
+@Mapper(componentModel = SPRING)
+public interface ProductMapper {
 
-        ProductDTO dto = new ProductDTO();
-        dto.setId(entity.getId());
-        dto.setName(entity.getName());
-        dto.setPrice(entity.getPrice());
-        return dto;
-    }
+    ProductDTO toDto(ProductEntity entity);
 
-    public List<ProductEntity> toEntityList(List<ProductDTO> dtos){
-        if (dtos == null || dtos.isEmpty()) return new ArrayList<>();
+    SaveProductResponse toSaveResponse(final ProductEntity entity);
 
-        return dtos.stream()
-                .map(this::toEntity)
-                .collect(Collectors.toList());
-    }
+    @Mapping(target = "id", ignore = true)
+    ProductDetailResponse toProductResponse(final ProductDTO dto);
 
+    @Mapping(target = "id", ignore = true)
+    ProductEntity toEntity(@Valid SaveProductRequest dto);
 
-    public List<ProductDTO> toDtoList(List<ProductEntity> entities) {
-        if (entities == null || entities.isEmpty()) return new ArrayList<>();
+    List<ProductDTO> toDtoList(List<ProductEntity> entities);
 
-        return entities.stream()
-                .map(this::toDto)
-                .collect(Collectors.toList());
-    }
-
-    public ProductEntity toEntity(ProductDTO dto) {
-        if (dto == null) return null;
-
-        ProductEntity entity = new ProductEntity();
-        entity.setId(dto.getId());
-        entity.setName(dto.getName());
-
-        entity.setPrice(dto.getPrice());
-
-        return entity;
-    }
+    List<ProductEntity> toEntityList(List<ProductDTO> dtos);
 }
 

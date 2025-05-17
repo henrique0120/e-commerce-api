@@ -27,9 +27,9 @@ public class AuthenticatedUserProvider {
 
         String token = authHeader.substring(7);
         JWTObject jwt = jwtCreator.parseToken(token);
-        String username = jwt.getSubject();
+        String email = jwt.getSubject();
 
-        return userRepository.findByUsername(username)
+        return userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
     }

@@ -1,27 +1,21 @@
 package com.henrique.mapper;
 
+import com.henrique.controller.request.SaveUserRequest;
+import com.henrique.controller.response.SaveProductResponse;
+import com.henrique.controller.response.SaveUserResponse;
 import com.henrique.dto.response.UserDTO;
 import com.henrique.model.UserEntity;
-import org.springframework.stereotype.Component;
+import jakarta.validation.Valid;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-@Component
-public class UserMapper {
+@Mapper(componentModel = "spring")
+public interface UserMapper {
 
-    public UserDTO toDto(UserEntity entity) {
-        if (entity == null) return null;
+    UserDTO toDto(UserEntity entity);
 
-        UserDTO dto = new UserDTO();
-        dto.setUsername(entity.getUsername());
-        dto.setPassword(entity.getPassword());
-        return dto;
-    }
+    SaveUserResponse toSaveResponse(final UserEntity entity);
 
-    public UserEntity toEntity(UserDTO dto) {
-        if (dto == null) return null;
-
-        UserEntity entity = new UserEntity();
-        entity.setUsername(dto.getUsername());
-        entity.setPassword(dto.getPassword());
-        return entity;
-    }
+    @Mapping(target = "id", ignore = true)
+    UserEntity toEntity(final @Valid SaveUserRequest request);
 }

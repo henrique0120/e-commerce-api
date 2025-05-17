@@ -28,7 +28,6 @@ public class OrderMapper {
         dto.setQuantity(item.getQuantity());
 
         ProductDTO productDTO = new ProductDTO();
-        productDTO.setId(item.getProduct().getId());
         productDTO.setName(item.getProduct().getName());
         productDTO.setPrice(item.getPriceAtPurchase());
 

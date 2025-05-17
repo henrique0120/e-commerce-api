@@ -26,20 +26,20 @@ public class LoginController {
 
     @PostMapping("/login")
     public Sessao logar(@RequestBody UserDTO userDTO){
-        UserEntity user = repository.findByUsername(userDTO.getUsername())
+        UserEntity user = repository.findByEmail(userDTO.getEmail())
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         if(user != null) {
             boolean passwordOk = encoder.matches(userDTO.getPassword(), user.getPassword());
             if (!passwordOk) {
-                throw new RuntimeException("Senha inválida para o login: " + userDTO.getUsername());
+                throw new RuntimeException("Senha inválida para o login: " + userDTO.getEmail());
             }
 
             Sessao sessao = new Sessao();
-            sessao.setLogin(user.getUsername());
+            sessao.setLogin(user.getEmail());
 
             JWTObject jwtObject = new JWTObject();
-            jwtObject.setSubject(user.getUsername());
+            jwtObject.setSubject(user.getEmail());
             jwtObject.setIssuedAt(new Date(System.currentTimeMillis()));
             jwtObject.setExpiration(new Date(System.currentTimeMillis() + 600000));
             jwtObject.setRoles(user.getRoles());

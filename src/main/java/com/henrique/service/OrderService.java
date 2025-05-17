@@ -34,8 +34,8 @@ public class OrderService {
     private final OrderMapper orderMapper;// se quiser associar a um usuário
 
     public UserEntity getAuthenticatedUser() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.findByUsername(username)
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
     }
 

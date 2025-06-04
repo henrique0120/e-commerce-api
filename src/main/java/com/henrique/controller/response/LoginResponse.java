@@ -1,4 +1,13 @@
 package com.henrique.controller.response;
 
-public class LoginResponse {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record LoginResponse (
+        @JsonProperty("id")
+        Long id,
+        @JsonProperty("email")
+        String email,
+        @JsonProperty("password")
+        String password
+){
 }

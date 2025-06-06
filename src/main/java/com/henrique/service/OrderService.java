@@ -3,9 +3,7 @@ package com.henrique.service;
 
 
 import com.henrique.dto.request.CreateOrderItemRequest;
-import com.henrique.dto.request.CreateOrderRequest;
 import com.henrique.dto.response.OrderDTO;
-import com.henrique.dto.response.OrderItemDTO;
 import com.henrique.mapper.OrderMapper;
 import com.henrique.model.OrderEntity;
 import com.henrique.model.OrderItem;
@@ -14,6 +12,7 @@ import com.henrique.model.UserEntity;
 import com.henrique.repository.OrderRepository;
 import com.henrique.repository.ProductRepository;
 import com.henrique.repository.UserRepository;
+import com.henrique.service.query.impl.UserQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -31,12 +30,12 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
-    private final OrderMapper orderMapper;// se quiser associar a um usuário
+    private final UserQueryService service;
+    private final OrderMapper orderMapper;
 
     public UserEntity getAuthenticatedUser() {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        return service.verifyUser(email);
     }
 
     @Transactional

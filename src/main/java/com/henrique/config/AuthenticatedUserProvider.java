@@ -4,19 +4,19 @@ import com.henrique.model.UserEntity;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTCreator;
 import com.henrique.security.JWTObject;
+import com.henrique.service.query.impl.UserQueryService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@Data
 public class AuthenticatedUserProvider {
 
     private final JWTCreator jwtCreator;
     private final UserRepository userRepository;
-
-    public AuthenticatedUserProvider(JWTCreator jwtCreator, UserRepository userRepository) {
-        this.jwtCreator = jwtCreator;
-        this.userRepository = userRepository;
-    }
+    private final UserQueryService service;
 
     public UserEntity getUserFromToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
@@ -29,8 +29,7 @@ public class AuthenticatedUserProvider {
         JWTObject jwt = jwtCreator.parseToken(token);
         String email = jwt.getSubject();
 
-        return userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        return service.verifyUser(email);
 
     }
 }

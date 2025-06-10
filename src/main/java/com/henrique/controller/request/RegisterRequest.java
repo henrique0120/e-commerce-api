@@ -3,7 +3,7 @@ package com.henrique.controller.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public record SaveUserRequest(
+public record RegisterRequest(
         @JsonProperty("name")
         String name,
         @JsonProperty("password")

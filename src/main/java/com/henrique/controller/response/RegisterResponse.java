@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public record SaveUserResponse(
+public record RegisterResponse(
         @JsonProperty("id")
         Long id,
         @JsonProperty("name")

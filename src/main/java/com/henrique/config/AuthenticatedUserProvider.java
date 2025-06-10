@@ -4,10 +4,9 @@ import com.henrique.model.UserEntity;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTCreator;
 import com.henrique.security.JWTObject;
-import com.henrique.service.query.impl.UserQueryService;
+import com.henrique.service.query.impl.LoginQueryService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,7 +15,7 @@ public class AuthenticatedUserProvider {
 
     private final JWTCreator jwtCreator;
     private final UserRepository userRepository;
-    private final UserQueryService service;
+    private final LoginQueryService service;
 
     public UserEntity getUserFromToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");

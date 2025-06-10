@@ -1,12 +1,10 @@
 package com.henrique.controller;
 
-import com.henrique.controller.request.SaveProductRequest;
-import com.henrique.controller.request.SaveUserRequest;
-import com.henrique.controller.response.SaveUserResponse;
+import com.henrique.controller.request.RegisterRequest;
+import com.henrique.controller.response.RegisterResponse;
 import com.henrique.mapper.UserMapper;
-import com.henrique.model.UserEntity;
-import com.henrique.service.IUserService;
-import com.henrique.service.impl.UserService;
+import com.henrique.service.IRegisterService;
+import com.henrique.service.impl.RegisterService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,16 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/register")
 @RequiredArgsConstructor
-public class UserController {
+public class RegisterController {
 
-    private final IUserService service;
+    private final IRegisterService service;
     private final UserMapper mapper;
-    private final UserService userService;
+    private final RegisterService userService;
 
     @PostMapping
-    SaveUserResponse createUser(@RequestBody @Valid final SaveUserRequest request){
+    RegisterResponse createUser(@RequestBody @Valid final RegisterRequest request){
         var entity = mapper.toEntity(request);
         userService.createUser(entity);
         return mapper.toSaveResponse(entity);

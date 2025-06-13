@@ -2,7 +2,7 @@ package com.henrique.controller;
 
 import com.henrique.config.SecurityConfig;
 import com.henrique.controller.request.LoginRequest;
-import com.henrique.dto.response.Sessao;
+import com.henrique.controller.response.Sessao;
 import com.henrique.mapper.UserMapper;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTCreator;
@@ -13,8 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Date;
 
 @RestController
 @RequiredArgsConstructor

@@ -1,7 +1,7 @@
 package com.henrique.service.impl;
 
 import com.henrique.controller.request.LoginRequest;
-import com.henrique.dto.response.Sessao;
+import com.henrique.controller.response.Sessao;
 import com.henrique.model.UserEntity;
 import com.henrique.security.JWTCreator;
 import com.henrique.security.JWTObject;

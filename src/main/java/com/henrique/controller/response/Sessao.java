@@ -1,4 +1,4 @@
-package com.henrique.dto.response;
+package com.henrique.controller.response;
 
 
 import lombok.Getter;

@@ -1,14 +1,12 @@
 package com.henrique.controller.response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 
-public record LoginResponse (
-        @JsonProperty("id")
-        Long id,
-        @JsonProperty("login")
-        String login,
-        @JsonProperty("token")
-        String token
-){
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class LoginResponse {
+    private String login;
+    private String token;
 }

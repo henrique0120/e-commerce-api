@@ -1,10 +1,10 @@
 package com.henrique.service;
 
 import com.henrique.controller.request.LoginRequest;
-import com.henrique.controller.response.Sessao;
+import com.henrique.controller.response.LoginResponse;
 
 public interface ILoginService {
 
-    Sessao checkUser(final LoginRequest loginRequest);
+    LoginResponse checkUser(final LoginRequest loginRequest);
 
 }

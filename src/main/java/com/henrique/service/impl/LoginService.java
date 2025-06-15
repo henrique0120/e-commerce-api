@@ -1,7 +1,8 @@
 package com.henrique.service.impl;
 
 import com.henrique.controller.request.LoginRequest;
-import com.henrique.controller.response.Sessao;
+
+import com.henrique.controller.response.LoginResponse;
 import com.henrique.model.UserEntity;
 import com.henrique.security.JWTCreator;
 import com.henrique.security.JWTObject;
@@ -20,7 +21,7 @@ public class LoginService implements ILoginService {
     private final JWTCreator jwtCreator;
 
     @Override
-    public Sessao checkUser(LoginRequest loginRequest) {
+    public LoginResponse checkUser(LoginRequest loginRequest) {
         UserEntity user = service.verifyUser(loginRequest.email());
         service.verifyPassword(loginRequest.password(), user.getPassword(), user.getEmail());
 
@@ -30,7 +31,7 @@ public class LoginService implements ILoginService {
         jwtObject.setExpiration(new Date(System.currentTimeMillis() + 600_000));
         jwtObject.setRoles(user.getRoles());
 
-        Sessao sessao = new Sessao();
+        LoginResponse sessao = new LoginResponse();
         sessao.setLogin(user.getEmail());
         sessao.setToken(jwtCreator.createToken(jwtObject));
 

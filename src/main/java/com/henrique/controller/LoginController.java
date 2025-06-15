@@ -2,7 +2,7 @@ package com.henrique.controller;
 
 import com.henrique.config.SecurityConfig;
 import com.henrique.controller.request.LoginRequest;
-import com.henrique.controller.response.Sessao;
+import com.henrique.controller.response.LoginResponse;
 import com.henrique.mapper.UserMapper;
 import com.henrique.repository.UserRepository;
 import com.henrique.security.JWTCreator;
@@ -26,7 +26,7 @@ public class LoginController {
     private final JWTCreator jwtCreator;
 
     @PostMapping("/login")
-    public Sessao logar(@RequestBody @Valid final LoginRequest request) {
+    public LoginResponse logar(@RequestBody @Valid final LoginRequest request) {
         return service.checkUser(request);
     }
 
